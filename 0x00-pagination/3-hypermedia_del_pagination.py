@@ -40,5 +40,16 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """ Returns dict """
-        pass
+        """
+        get_hyper_index function
+        """
+        assert type(index) is int and index > 0
+        assert type(page_size) is int and page_size > 0
+
+        _dict = {
+            "index": index,
+            "data": self.dataset()[index: index + page_size],
+            "page_size": len(self.dataset()[index: index + page_size]),
+            "next_index": index + page_size
+        }
+        return _dict

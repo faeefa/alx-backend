@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-""" Pagination """
-
+"""
+Simple helper function
+"""
 from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """ returns tuple of size two containing a start index and an end index """
-    pass
+    """
+    index_range function
+    """
+    end_index = page * page_size
+    start_index = end_index - page_size
+    return (start_index, end_index)
